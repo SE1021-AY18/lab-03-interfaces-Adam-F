@@ -1,4 +1,4 @@
-public class SheetMetal implements  Part{
+public class Nut implements Part {
 
     @Override
     public double getCost() {

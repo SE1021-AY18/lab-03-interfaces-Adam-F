@@ -1,4 +1,5 @@
 public class Bolt implements  Part {
+
     @Override
     public double getCost() {
         return 0;

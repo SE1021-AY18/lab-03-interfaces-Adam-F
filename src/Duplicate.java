@@ -1,21 +1,52 @@
+/*
+ * SE1021
+ * Winter 2017
+ * Lab 3
+ * Created: 12/14/2016
+ * Author: Adam Ferwerda
+ */
 import java.text.DecimalFormat;
-
+/**
+ * This class handles the duplication of parts. As well as building a collection of parts to make an assembly
+ * @author Adam Ferwerda
+ * @version 1.0
+ */
 public class Duplicate implements Part{
     private Part identicalPart;
     private DecimalFormat costFormat = new DecimalFormat("$##.##");
     private DecimalFormat weightFormat = new DecimalFormat("##.### lbs");
     private int numDuplicates;
+    /**
+     * Discount factor 5% off
+     */
     public static final double REDUCTION_FACTOR1 = 0.95;
+    /**
+     * Discount factor 10% off
+     */
     public static final double REDUCTION_FACTOR2 = 0.9;
+    /**
+     * Part cost break point threshold for 5% off
+     */
     public static final int USD_THRESHOLD1 = 5;
+    /**
+     * Part cost break point threshold for 10% off
+     */
     public static final int USD_THRESHOLD2 =10;
 
-
+    /**
+     * Default constructor
+     * @param part object of the current part (i.e bolt, sheet metal, nut)
+     * @param numDuplicates the number of duplicate instances
+     */
     public Duplicate(Part part, int numDuplicates) {
         this.identicalPart = part;
         this.numDuplicates = numDuplicates;
     }
 
+    /**
+     *
+     * @return the calculated cost with a given discount applied
+     */
     @Override
     public double getCost() {
         double currentCost = identicalPart.getCost() * numDuplicates;
@@ -37,7 +68,9 @@ public class Duplicate implements Part{
     public double getWeight() {
         return identicalPart.getWeight() * numDuplicates;
     }
-
+    /**
+     * The display method for the collection of objects
+     */
     @Override
     public void printBillOfMaterials() {
         System.out.println("====================\n" + this.getName() + "s\n====================\n" +

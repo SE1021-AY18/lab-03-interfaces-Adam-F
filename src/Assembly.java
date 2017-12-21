@@ -7,6 +7,11 @@
  */
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+/**
+ * This class creates a collection of parts. Also handles the display of a given product
+ * @author Adam Ferwerda
+ * @version 1.0
+ */
 public class Assembly implements Part {
     private DecimalFormat costFormat = new DecimalFormat("$##.##");
     private DecimalFormat weightFormat = new DecimalFormat("##.### lbs");

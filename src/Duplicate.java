@@ -58,7 +58,6 @@ public class Duplicate implements Part{
         }
         return currentCost;
     }
-
     @Override
     public String getName() {
         return this.numDuplicates + " " + identicalPart.getName();
@@ -73,13 +72,17 @@ public class Duplicate implements Part{
      */
     @Override
     public void printBillOfMaterials() {
-        System.out.println("====================\n" + this.getName() + "s\n====================\n" +
-                "Duplicate part: " + this.getName().substring(3,this.getName().length()) + "\n" +
+        String individualWeight = weightFormat.format(identicalPart.getWeight());
+        String individualCost = costFormat.format(identicalPart.getCost());
+        String totalCost = costFormat.format(getCost());
+        String totalWeight = weightFormat.format(getWeight());
+        System.out.println("====================\n" + getName() + "s\n====================\n" +
+                "Duplicate part: " + getName().substring(2,getName().length()) + "\n" +
                 "Copies: " + numDuplicates + "\n" +
-                "Individual cost: " + costFormat.format(this.identicalPart.getCost()) + "\n" +
-                "Individual weight: " + weightFormat.format(this.identicalPart.getWeight()) + "\n\n" +
-                "Total cost: " + this.costFormat.format(this.getCost()) + "\n" +
-                "Total weight: " + this.weightFormat.format(this.getWeight()) + "\n");
+                "Individual cost: " + individualCost + "\n" +
+                "Individual weight: " + individualWeight + "\n\n" +
+                "Total cost: " + totalCost + "\n" +
+                "Total weight: " + totalWeight + "\n");
         this.identicalPart.printBillOfMaterials();
     }
 }

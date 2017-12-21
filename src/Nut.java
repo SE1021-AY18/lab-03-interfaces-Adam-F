@@ -1,3 +1,5 @@
+import jdk.internal.org.objectweb.asm.tree.FieldInsnNode;
+
 public class Nut implements Part {
     private double diameterInches;
     public final double LBS_MULTIPLIER = 0.01;
@@ -8,18 +10,23 @@ public class Nut implements Part {
     }
     @Override
     public double getCost() {
-        return 0;
+        return USD_MULTIPLIER * Math.pow(diameterInches,2);
     }
     @Override
     public String getName() {
-        return null;
+        return diameterInches + " nut";
     }
     @Override
     public double getWeight() {
-        return 0;
+        return LBS_MULTIPLIER * Math.pow(diameterInches,2);
     }
     @Override
     public void printBillOfMaterials() {
-
+        System.out.println("====================\n" +
+                this.getName() + "\n" +
+                "====================\n" +
+                "Diameter: " + diameterInches + " inches\n" +
+                "Cost: $" + getCost() + "\n" +
+                "Weight: " + getWeight() + " lbs\n");
     }
 }

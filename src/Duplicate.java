@@ -44,7 +44,8 @@ public class Duplicate implements Part{
     }
 
     /**
-     *
+     *  This determines the when the cost reduction is applied and for how much
+     *  This company offers price breaks when a customer buys a certain number of products
      * @return the calculated cost with a given discount applied
      */
     @Override
@@ -52,8 +53,7 @@ public class Duplicate implements Part{
         double currentCost = identicalPart.getCost() * numDuplicates;
         if(numDuplicates >= USD_THRESHOLD1 && numDuplicates < USD_THRESHOLD2){
             currentCost *= REDUCTION_FACTOR1;
-        }
-        else if(numDuplicates >= USD_THRESHOLD2){
+        }else if(numDuplicates >= USD_THRESHOLD2){
             currentCost *= REDUCTION_FACTOR2;
         }
         return currentCost;

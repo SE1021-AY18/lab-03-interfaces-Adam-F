@@ -1,5 +1,11 @@
 public class SheetMetal implements  Part{
+    /**
+     * LBS_MULTIPLIER is used in the weight calculation that accounts for the weight of steel per pound
+     */
     public final double LBS_MULTIPLIER = 0.1;
+    /**
+     * USD_MULTIPLIER is used to calculated the cost per item
+     */
     public final double USD_MULTIPLIER = 0.5;
     private double lengthInches;
     private double thicknessInches;
@@ -23,7 +29,9 @@ public class SheetMetal implements  Part{
     public double getWeight() {
         return LBS_MULTIPLIER * thicknessInches * widthInches * lengthInches;
     }
-
+    /**
+     * The display method for each object
+     */
     @Override
     public void printBillOfMaterials() {
         System.out.println("====================\n" +

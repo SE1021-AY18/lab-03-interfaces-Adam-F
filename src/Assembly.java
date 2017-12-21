@@ -1,3 +1,10 @@
+/*
+ * SE1021
+ * Winter 2017
+ * Lab 3
+ * Created: 12/14/2016
+ * Author: Adam Ferwerda
+ */
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 public class Assembly implements Part {
@@ -46,6 +53,5 @@ public class Assembly implements Part {
         for (int i=0;i<subParts.size();i++) {
             subParts.get(i).printBillOfMaterials();
         }
-    }
     }
 }
